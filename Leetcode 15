@@ -30,3 +30,33 @@ class Solution {
     }
 }
 
+思路二复杂度为n^2
+1. 排序，去重，同1
+2. 确定左右两个端点，如果大于需求，左移right;小于需求，右移left.
+3. 外层套循环
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        for (int i=0;i<nums.length-2;i++){
+            int left=i+1;
+            int right=nums.length-1;
+            if(i>0&&nums[i]==nums[i-1])
+                continue;
+            while (left<right){
+                if(nums[i]+nums[left]+nums[right]==0){
+                    result.add(Arrays.asList(new Integer[]{nums[i], nums[left], nums[right]}));
+                while(left<right&&nums[left]==nums[left+1])
+                    left++;
+                while(left<right&&nums[right]==nums[right-1])
+                    right--;
+                left++;
+                right--;
+                }
+                else if (nums[i]+nums[left]+nums[right]>0) right--;
+                else left++;
+            }
+        }
+        return result;
+    }
+}
