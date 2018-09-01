@@ -1,0 +1,32 @@
+Three sums
+第一思路是三重循环，复杂度太高，关键是判断重复的情况
+判断重复：1.Arrays.sort()排序
+         2.判断后一个是否跟前一个元素相同，如果相同则++
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums); //key
+        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        int m=nums.length;
+        for(int i=0;i<m-2;i++){
+            if(i>0&&nums[i]==nums[i-1])
+                i++;
+            for(int j=i+1;j<m-1;j++){
+                if(j>i+1&&nums[j]==nums[j-1])
+                j++;
+                for(int k=j+1;k<m;k++){
+                    if(k>j+1&&nums[k]==nums[k-1])
+                    k++;
+                    if(nums[i]+nums[j]+nums[k]==0){
+                        List<Integer> result1=new ArrayList<Integer>();
+                        result1.add(nums[i]);
+                        result1.add(nums[j]);
+                        result1.add(nums[k]);
+                        result.add(result1);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+
