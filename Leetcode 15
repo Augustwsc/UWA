@@ -47,7 +47,7 @@ class Solution {
                 if(nums[i]+nums[left]+nums[right]==0){
                     result.add(Arrays.asList(new Integer[]{nums[i], nums[left], nums[right]}));
                 while(left<right&&nums[left]==nums[left+1])
-                    left++;
+                    left++;             //后一个跟前一个重复，先移动到后一个再++进行新的寻找
                 while(left<right&&nums[right]==nums[right-1])
                     right--;
                 left++;
