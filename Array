@@ -1,0 +1,11 @@
+for each用法
+for(int element:a){pring(element)}
+
+Java.util.Arrays
+.toString()   转字符串
+.copyOf(type[] a,int length)
+.copyOfRange()
+.sort()
+.binarySearch(type[] a,type v)  二分法查找v的位置并返回
+.fill(type v)  全部填满返回v
+.equals()  判断两个数组是否相等
