@@ -1,0 +1,21 @@
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int result=nums[0]+nums[1]+nums[nums.length-1];
+        for(int i=0;i<nums.length-2;i++){
+            int left=i+1; int right=nums.length-1;
+            while(left<right){
+                int sums=nums[i]+nums[left]+nums[right];
+                if(Math.abs(sums-target)<Math.abs(result-target)){
+                    result=sums;
+                }
+                if(sums<target) left++;
+                else right--;
+            }
+        }
+        return result;
+    }
+}
+
+关键是去重问题，因为这个是找最接近的，如果和上题一样去重的话，会导致遗漏nums[i]+nums[left]+nums[left+1]这个数。
+其实简单来想他这个返回的最接近值，并不需要刻意去重这个问题。
