@@ -6,7 +6,8 @@ Java.util.Arrays
 .copyOf(type[] a,int length)
 .copyOfRange()
 .sort()
-.binarySearch(type[] a,type v)  二分法查找v的位置并返回
+.binarySearch(type[] a,type v)  二分法查找v的位置并返回    必须要排序后的数组才能使用，乱序数组结果不对。
+                                如果找不到该元素，则返回‘-插入点’  Ex. {1,3,4,8,9} 0->-1  10->-6
 .fill(type v)  全部填满返回v
 .equals()  判断两个数组是否相等
 
